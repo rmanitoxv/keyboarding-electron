@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { AiFillHome, AiFillSound } from "react-icons/ai";
 import Balloon from "../components/Balloon";
 
-
-
 const PopTheBalloonGame = () => {
   const colors = ["red", "blue", "green", "yellow"];
   const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -51,8 +49,8 @@ const PopTheBalloonGame = () => {
   const checkLetter = (letter) => {
     let newLetters = letters
     for (let i = 0; i < letters.length; i++) {
-      if (newLetters[i].letter === letter.toUpperCase() && newLetters[i].bg === "balloon.png") {
-        newLetters[i].bg = "balloon-pop.gif"
+      if (newLetters[i].letter === letter.toUpperCase() && newLetters[i].bg === "balloon") {
+        newLetters[i].bg = "balloon-pop"
         setLetters(newLetters)
         return newLetters[i];
       }
@@ -103,7 +101,7 @@ const PopTheBalloonGame = () => {
       setGameStart(false);
       return;
     }
-    if (letters.length && timer === letters[0].timer && letters[0].bg === "balloon.png"){
+    if (letters.length && timer === letters[0].timer && letters[0].bg === "balloon"){
       setLetters(deleteElement(letters, letters[0]))
     }
     if (start) {
@@ -118,7 +116,7 @@ const PopTheBalloonGame = () => {
         letter: LETTERS[Math.floor(Math.random() * LETTERS.length)],
         top: Math.floor(Math.random() * 18),
         left: Math.floor(Math.random() * 42),
-        bg: "balloon.png",
+        bg: "balloon",
         timer: timer - 5
       };
   
